@@ -1,0 +1,1135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adam Rakhamim | AI Creative Portfolio</title>
+    <meta
+      name="description"
+      content="AI Creative Portfolio of Adam Rakhamim — music videos, songs, publications, and creative experiments made with artificial intelligence."
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+        color: #f5f3ff;
+        background: #0b1020;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1120px, 92%);
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(11, 16, 32, 0.9);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .nav {
+        min-height: 72px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .logo {
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        font-size: 1.1rem;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 0.95rem;
+        color: #c7c9d9;
+      }
+
+      .nav-links a:hover {
+        color: #ffffff;
+      }
+
+      .hero {
+        position: relative;
+        padding: 110px 0 90px;
+        background:
+          linear-gradient(rgba(8, 12, 24, 0.7), rgba(8, 12, 24, 0.84)),
+          url("images/adam-ai-header.png") center center / cover no-repeat;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(112, 97, 255, 0.28),
+            transparent 32%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(0, 229, 255, 0.16),
+            transparent 28%
+          );
+        pointer-events: none;
+      }
+
+      .hero .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 48px;
+        align-items: center;
+        min-height: 430px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 999px;
+        color: #b9c2ff;
+        background: rgba(255, 255, 255, 0.08);
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 22px;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 6vw, 5.2rem);
+        line-height: 0.98;
+        letter-spacing: -0.07em;
+        margin-bottom: 24px;
+      }
+
+      h2 {
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        line-height: 1.05;
+        letter-spacing: -0.05em;
+        margin-bottom: 16px;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        line-height: 1.25;
+        margin-bottom: 10px;
+      }
+
+      .title-translation {
+        color: #aeb6dd;
+        font-weight: 600;
+      }
+
+      p {
+        color: #c7c9d9;
+      }
+
+      .hero-text {
+        font-size: 1.15rem;
+        max-width: 720px;
+        color: #e4e7ff;
+      }
+
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 32px;
+      }
+
+      .btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        padding: 13px 20px;
+        border-radius: 999px;
+        font-weight: 800;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.06);
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .btn-primary {
+        color: #07111f;
+        background: linear-gradient(135deg, #8ee7ff, #c7b7ff);
+        border: none;
+      }
+
+      .hero-panel {
+        padding: 28px;
+        border-radius: 28px;
+        background: rgba(11, 16, 32, 0.52);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.26);
+      }
+
+      .hero-panel strong {
+        display: block;
+        font-size: 3rem;
+        line-height: 1;
+        margin-bottom: 10px;
+        letter-spacing: -0.06em;
+      }
+
+      .hero-panel span {
+        color: #d3d8f8;
+      }
+
+      section {
+        padding: 78px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .section-header {
+        max-width: 760px;
+        margin-bottom: 34px;
+      }
+
+      .section-header p {
+        font-size: 1.05rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+
+      .grid.two {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .song-player {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        margin: 18px 0;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      .song-player iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .card {
+        min-height: 100%;
+        padding: 24px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.11);
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .publication-cover {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 18px;
+        margin-bottom: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      .publication-cover.portrait {
+        aspect-ratio: 2 / 3;
+        object-fit: cover;
+        max-height: 390px;
+        object-position: top center;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(142, 231, 255, 0.35);
+      }
+
+      .tag {
+        display: inline-block;
+        margin-bottom: 16px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        color: #8ee7ff;
+        background: rgba(142, 231, 255, 0.09);
+        border: 1px solid rgba(142, 231, 255, 0.16);
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .card p {
+        margin-bottom: 18px;
+      }
+
+      .creative-note {
+        margin-top: 24px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 1rem;
+      }
+
+      .creative-note strong {
+        display: block;
+        color: #ffffff;
+        margin-bottom: 16px;
+      }
+
+      .creative-note p {
+        margin-bottom: 20px;
+        line-height: 1.85;
+        max-width: 75ch;
+      }
+
+      .creative-note p:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .read-more-btn {
+        margin-top: 16px;
+        padding: 9px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.07);
+        font-weight: 800;
+        cursor: pointer;
+        transition:
+          background 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .read-more-btn:hover {
+        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .link {
+        display: inline-flex;
+        margin-top: 8px;
+        font-weight: 800;
+        color: #ffffff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      }
+
+      .feature-card {
+        padding: 40px;
+        border-radius: 30px;
+        background: linear-gradient(
+          135deg,
+          rgba(112, 97, 255, 0.22),
+          rgba(0, 229, 255, 0.1)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .feature-card + .feature-card {
+        margin-top: 28px;
+      }
+
+      .video-embed {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        margin-top: 24px;
+        border-radius: 22px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      .video-embed iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .contact {
+        text-align: center;
+        padding-bottom: 96px;
+      }
+
+      .contact p {
+        max-width: 640px;
+        margin: 0 auto;
+        font-size: 1.05rem;
+      }
+
+      footer {
+        padding: 28px 0;
+        color: #9da3c5;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        text-align: center;
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 860px) {
+        .hero-grid,
+        .grid,
+        .grid.two {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 18px 0;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+          gap: 12px 16px;
+        }
+
+        .hero {
+          padding-top: 70px;
+          padding-bottom: 70px;
+        }
+
+        .hero-grid {
+          min-height: auto;
+        }
+
+        .feature-card {
+          padding: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a class="logo" href="#top">Adam Rakhamim</a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#music-video">Song + Music Videos</a>
+          <a href="#songs">Songs</a>
+          <a href="#publications">Publications</a>
+          <a
+            href="https://www.linkedin.com/in/adamrakhamim/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">AI Creative Portfolio</div>
+            <h1>
+              Creative work made with imagination, AI, and experimentation.
+            </h1>
+            <p class="hero-text">
+              I’m Adam Rakhamim. This portfolio collects my AI-assisted creative
+              projects, including music videos, original songs, and
+              publications. Each project explores how artificial intelligence
+              can support storytelling, humor, visual direction, music, and
+              personal creative expression.
+            </p>
+            <div class="buttons">
+              <a class="btn btn-primary" href="#music-video">View Projects</a>
+              <a
+                class="btn"
+                href="https://www.linkedin.com/in/adamrakhamim/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Follow me on LinkedIn</a
+              >
+            </div>
+          </div>
+
+          <aside class="hero-panel" aria-label="Portfolio summary">
+            <strong>AI + Creativity</strong>
+            <span>
+              Music videos, songs, publications, and experiments that combine
+              human ideas with modern AI tools.
+            </span>
+          </aside>
+        </div>
+      </section>
+
+      <section id="music-video">
+        <div class="container">
+          <div class="section-header">
+            <h2>Song + Music Videos</h2>
+            <p>
+              AI-assisted projects where the song and the music video were
+              developed together as one creative experience.
+            </p>
+          </div>
+
+          <article class="feature-card">
+            <span class="tag">Song + Music Video</span>
+            <h3>For Röya — An AI-Assisted Music Video</h3>
+            <p>
+              A personal music video created as a love letter for my wife, Röya,
+              combining songwriting, visual storytelling, and AI-assisted
+              production.
+            </p>
+            <a
+              class="link"
+              href="https://youtu.be/sWObCP9bgvg?si=lAPYGQWG7Mpn0YCW"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Watch on YouTube</a
+            >
+
+            <div class="video-embed">
+              <iframe
+                src="https://www.youtube.com/embed/sWObCP9bgvg"
+                title="Adam Rakhamim AI Music Video"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <div class="creative-note">
+              <strong>Creative thought process</strong>
+              <p>
+                This music video was a deeply personal project I created for my
+                wife, Röya. I began by writing, in my own plain words,
+                everything I felt about her and about our relationship,
+                especially memories from our early dating days. Once I had the
+                emotional core of the piece, I worked with Gemini to help refine
+                those ideas into lyrics with stronger rhyme, rhythm, and
+                structure while still preserving my voice and the meaning behind
+                the words.
+              </p>
+              <p>
+                From there, I used Suno to turn the lyrics into a finished song,
+                shaping elements like the melody, pacing, and overall musical
+                feel. Once the song was complete, my attention shifted to how I
+                wanted to represent it visually. I’ve always loved
+                pre-industrial storytelling, especially the emotional atmosphere
+                of castle-era worlds, where a warrior could be away from home
+                for a long time and be sustained by the thought of a loved one
+                waiting for him. That became the emotional and visual foundation
+                of the video. I also wanted there to be some ambiguity — whether
+                the warrior is truly reunited with his lover, or whether those
+                moments are partly unfolding in his mind.
+              </p>
+              <p>
+                One of the biggest challenges was consistency. At the time, I
+                was working with Flow using VEO 3, which was limited to
+                generating 8-second clips, while the full music video runs
+                almost four minutes. To solve that, I first storyboarded the
+                entire piece in Opus 4.5, breaking it into roughly 8-second
+                segments. For each segment, I generated a starting frame and an
+                ending frame using detailed descriptions and a JSON-style guide,
+                which helped maintain consistency through ChatGPT image
+                generation. I intentionally chose a black-and-white illustrated
+                style rather than realism, because illustration is much more
+                forgiving of the visual quirks that often appear in AI image and
+                video generation.
+              </p>
+              <p>
+                After building the sequence, I generated the clips in Flow,
+                stitched them together in post-production, and extended some
+                moments by slowing down the footage. The entire project took
+                about 12 hours, and I’m very proud of the result. In the future,
+                I’d love to revisit this process with a tool like Runway to
+                achieve even stronger consistency and fidelity with less manual
+                effort.
+              </p>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <span class="tag">Song + Music Video</span>
+            <h3>
+              Where Are You, Youth?
+              <span class="title-translation">/ Молодость, ты где?</span>
+            </h3>
+            <p>
+              A Russian-language AI-assisted song and music video released under
+              the stage name Адам Бакинский. For English-speaking listeners:
+              <em>Молодость, ты где?</em> translates to
+              <em>Where Are You, Youth?</em>, with the public-facing credit as
+              Adam Rakhamim.
+            </p>
+            <a
+              class="link"
+              href="https://www.youtube.com/watch?v=zTbn0xjrVI0"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Watch on YouTube</a
+            >
+
+            <div class="video-embed">
+              <iframe
+                src="https://www.youtube.com/embed/zTbn0xjrVI0"
+                title="Where Are You, Youth? / Молодость, ты где? - Adam Rakhamim"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <div class="creative-note">
+              <strong>Creative thought process</strong>
+              <p>
+                This project was both a musical challenge and a visual
+                storytelling challenge. The song speaks about the nostalgia we
+                attach to youth: the parts that are real, the parts that are
+                romanticized, and the emotional tension between who we were and
+                who we become.
+              </p>
+              <p>
+                The songwriting process was similar to some of my other songs. I
+                started by writing my own piece, then used AI to help structure
+                it so it could work musically. What makes this project
+                especially interesting is the video. All of the images in the
+                video are AI-generated, and each pair of images is designed to
+                show a contrast between the present and the remembered past.
+              </p>
+              <p>
+                For example, one image shows a desolate, broken-down playground
+                with rusted equipment and nothing around it. Its corresponding
+                image shows the same playground during youth, filled with
+                children joyfully playing. Another image shows a woman behind a
+                desk doing accounting work, visibly stressed. The matching image
+                shows that same woman as a young lady, with her desk covered not
+                in accounting papers, but in art papers, paint, and brushes.
+              </p>
+              <p>
+                On the AI side, generating these images with consistent camera
+                angles, consistent characters, and clear visual parallels was
+                difficult. It required carefully defining the angle, the number
+                of people in the shot, and the relationship between each
+                present-day image and its corresponding memory.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="songs">
+        <div class="container">
+          <div class="section-header">
+            <h2>Songs</h2>
+            <p>
+              Standalone AI-assisted songs exploring lyrics, melody, theme,
+              humor, emotion, and storytelling.
+            </p>
+          </div>
+
+          <div class="grid">
+            <article class="card">
+              <span class="tag">Song</span>
+              <h3>My Baku <span class="title-translation">/ Мой Баку</span></h3>
+              <p>
+                A Russian-language AI-assisted song released under the stage
+                name Адам Бакинский. For English-speaking listeners:
+                <em>Мой Баку</em> translates to <em>My Baku</em>, and the
+                public-facing credit is Adam Rakhamim.
+              </p>
+              <div class="song-player">
+                <iframe
+                  src="https://www.youtube.com/embed/UsiGMZ0sH6I"
+                  title="My Baku / Мой Баку - Adam Rakhamim"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <a
+                class="link"
+                href="https://www.youtube.com/watch?v=UsiGMZ0sH6I"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Open on YouTube</a
+              >
+              <div class="creative-note">
+                <strong>Creative thought process</strong>
+                <p>
+                  This song is about Baku, the hometown I grew up in. I wrote
+                  the original words myself, which is how I usually begin this
+                  kind of creative process: by jotting down my own thoughts,
+                  memories, and feelings before bringing in any AI tools. For
+                  this song, I leaned into what I carry deep in my heart about
+                  my love for the city.
+                </p>
+                <p>
+                  I also researched online forums to understand how other people
+                  from Baku, especially those living abroad, spoke about the
+                  city. The song became an amalgamation of the love, nostalgia,
+                  and longing that many people who grew up in Baku seem to carry
+                  with them. I shaped those feelings into a poem as best as I
+                  could, then worked with Gemini to refine the structure so the
+                  syllabic flow felt consistent and pleasant to the ear.
+                </p>
+                <p>
+                  From there, I took the lyrics into Suno. After quite a few
+                  generations and attempts, I found a chanson-inspired style
+                  that felt right for the nostalgic tone of the words. I then
+                  used ChatGPT to create a cover image and put the final visual
+                  together in Clipchamp, including details like the music bars.
+                </p>
+                <p>
+                  As of May 2026, this song has received over 20,000 views. I’ve
+                  also had people message me to say that the song captured their
+                  feelings about Baku, which is one of the most meaningful
+                  responses I could have hoped for.
+                </p>
+              </div>
+            </article>
+
+            <article class="card">
+              <span class="tag">Song</span>
+              <h3>I Look</h3>
+              <p>
+                An English-language AI-assisted song released as “I Look | Adam
+                Rakhamim,” built around searching, direction, longing, and
+                self-reflection.
+              </p>
+              <div class="song-player">
+                <iframe
+                  src="https://www.youtube.com/embed/WQnKu5fbyaw"
+                  title="I Look | Adam Rakhamim"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <a
+                class="link"
+                href="https://www.youtube.com/watch?v=WQnKu5fbyaw"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Open on YouTube</a
+              >
+              <div class="creative-note">
+                <strong>Creative thought process</strong>
+                <p>
+                  This song was another way for me to express what I was feeling
+                  during a particular week. Sometimes I hit moments where I do
+                  not know exactly which direction my life is heading, and my
+                  first instinct is to look outward for an answer. I might look
+                  to other people, a book, a motivational video, or some outside
+                  source of clarity.
+                </p>
+                <p>
+                  The song captures that emotional movement: searching outside
+                  myself for help, then realizing that the answer also requires
+                  looking inward. It is about the moment when external
+                  inspiration is useful, but not enough by itself. At some
+                  point, I have to lean in and confront what is happening inside
+                  me.
+                </p>
+                <p>
+                  The process was interesting because it began as a monologue
+                  that I wrote into ChatGPT. I used ChatGPT to help structure
+                  that monologue into lyrics, then brought the lyrics into Suno
+                  to turn them into a finished song.
+                </p>
+              </div>
+            </article>
+
+            <article class="card">
+              <span class="tag">Song</span>
+              <h3>Bibble Bobble Bubblegum</h3>
+              <p>
+                A playful AI-assisted song released as “Adam R - Bibble Bobble
+                Bubblegum,” filled with colorful characters, tongue-twisting
+                rhymes, and bubbly energy.
+              </p>
+              <div class="song-player">
+                <iframe
+                  src="https://www.youtube.com/embed/V8B2ky1PzLo"
+                  title="Adam R - Bibble Bobble Bubblegum"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <a
+                class="link"
+                href="https://www.youtube.com/watch?v=V8B2ky1PzLo"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Open on YouTube</a
+              >
+              <div class="creative-note">
+                <strong>Creative thought process</strong>
+                <p>
+                  This was my first attempt at making music with AI, and it was
+                  both fun and surprisingly challenging. My goal was simple:
+                  make a song that my kids would actually enjoy. Based on the
+                  number of times we played it in the car, I would call it a
+                  success.
+                </p>
+                <p>
+                  I focused on alliteration, rhythm, and finding a loop that
+                  could get stuck in someone’s head. The song tells a playful
+                  story about a character going on an adventure, but the fast,
+                  joyful beat and the repeated “Bibble Bobble” sound are what
+                  make it memorable.
+                </p>
+                <p>
+                  I created the image for the song using one of ChatGPT’s
+                  earlier image generation models. Looking back, I remember how
+                  much harder it was to create usable images compared to today.
+                  At that time, AI-generated characters often had missing limbs,
+                  strange proportions, or awkward details.
+                </p>
+                <p>
+                  I leaned into an illustrated bubblegum-character style because
+                  it was more forgiving. If a bubblegum character has long legs,
+                  a big head, or odd proportions, it can still feel intentional
+                  and playful rather than broken. That made the visual style a
+                  good match for the silly, energetic spirit of the song.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="publications">
+        <div class="container">
+          <div class="section-header">
+            <h2>Publications</h2>
+            <p>
+              Published creative work exploring the use of artificial
+              intelligence in illustration, storytelling, and visual publishing.
+            </p>
+          </div>
+
+          <div class="grid two">
+            <article class="card">
+              <img
+                class="publication-cover"
+                src="images/animals-and-seasons-cover.jpg"
+                alt="Cover of Animals and Seasons by Adam Rakhamim, illustrated with AI"
+              />
+              <span class="tag">Publication</span>
+              <h3>Animals and Seasons</h3>
+              <p>
+                My first attempt at creating an illustrated children’s book
+                using AI, made in 2022 with OpenAI’s DALL·E 2 image model.
+              </p>
+              <a
+                class="link"
+                href="https://www.amazon.com/Animals-Seasons-Illustrations-Artificial-Intelligence-ebook/dp/B0BM6YT7S8/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View on Amazon</a
+              >
+              <div class="creative-note">
+                <strong>Creative thought process</strong>
+                <p>
+                  Animals and Seasons was my first attempt to create an
+                  illustrated book using AI. Back in 2022, I was working with
+                  OpenAI’s DALL·E 2 image model, which by today’s standards
+                  feels very rudimentary. Details like eyes, ears, and legs were
+                  often way off, and one of the biggest challenges was that the
+                  model could not reliably create consistent characters from one
+                  generation to the next, even with detailed descriptions.
+                </p>
+                <p>
+                  At the time, I asked myself: what format would be most
+                  forgiving if I wanted to create a completed piece of work with
+                  the AI tools available then? I was reading stories to my kids,
+                  and I thought a children’s book could work well because it
+                  could include many different characters doing different things
+                  while still feeling cohesive. My son was around two years old,
+                  so I thought about what he would enjoy hearing and what kinds
+                  of words he was learning. Animals and seasons felt like a
+                  natural fit.
+                </p>
+                <p>
+                  I wrote the whole book myself because, at the time, ChatGPT
+                  was not yet especially useful for helping me write the poem.
+                  The opening lines are simple: “Here’s a chicken in the summer
+                  and a kitten in the fall. There’s a bear during the winter and
+                  in the spring a giraffe so tall.” Those lines allowed me to
+                  create four separate AI-generated images and bring them
+                  together into one spread.
+                </p>
+                <p>
+                  I only had to make minor corrections in a few places. For
+                  example, the bear’s eyes were slightly too far apart and
+                  looked unnatural, so I used a little Photoshop to adjust them.
+                  For the kitten image, some of the falling leaves did not
+                  always look like leaves, so I corrected those details as well.
+                  For 2022, this felt like an amazing accomplishment:
+                  AI-generated illustrations assembled into a real children’s
+                  book. I was proud of it, my kids loved it, and the project
+                  gave me a chance to push what AI could do at that moment in
+                  time.
+                </p>
+              </div>
+            </article>
+
+            <article class="card">
+              <img
+                class="publication-cover portrait"
+                src="images/tea-party-cover.jpg"
+                alt="Cover of How to Throw the Best Tea Party in the World by Adam Rakhamim"
+              />
+              <span class="tag">Publication</span>
+              <h3>How to Throw the Best Tea Party in the World</h3>
+              <p>
+                A 2025 children’s book project created to test how far
+                AI-assisted image generation and storytelling workflows had
+                advanced since my first AI book in 2022.
+              </p>
+              <a
+                class="link"
+                href="https://www.amazon.com/How-Throw-Best-Party-World-ebook/dp/B0FK6BK9QJ"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View on Amazon</a
+              >
+              <div class="creative-note">
+                <strong>Creative thought process</strong>
+                <p>
+                  How to Throw the Best Tea Party in the World was published in
+                  2025, three years after Animals and Seasons. This book was my
+                  attempt to see, in practice, how much easier it had become to
+                  create a children’s book with AI after several years of
+                  progress in image-generation models.
+                </p>
+                <p>
+                  With Animals and Seasons, I had to work around the limitations
+                  of early AI illustration tools. By 2025, I wanted to test
+                  whether I could prompt an AI model to help bring together a
+                  more complete book experience, including a more cohesive
+                  visual world. There was still a fair amount of inconsistency,
+                  and I still had to guide the storyline and creative direction
+                  carefully, but the model was able to produce a much higher
+                  degree of consistency than what was possible three years
+                  earlier.
+                </p>
+                <p>
+                  For me, this second book was less about proving that AI could
+                  replace the creative process and more about measuring how far
+                  the tools had come. I wanted to compare the experience of
+                  building a children’s book in 2025 against the experience of
+                  building one in 2022. The difference was significant.
+                </p>
+                <p>
+                  I plan to make another children’s book, maybe this year or
+                  early next year, and I expect that process to feel
+                  dramatically different again. The image and video generation
+                  models released over the last year have improved so quickly
+                  that each new project becomes a snapshot of what the
+                  technology could do at that specific moment.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="container">
+          <h2>Let’s connect</h2>
+          <p>
+            Follow my work, creative experiments, and AI projects on LinkedIn.
+          </p>
+          <div class="buttons" style="justify-content: center">
+            <a
+              class="btn btn-primary"
+              href="https://www.linkedin.com/in/adamrakhamim/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Follow me on LinkedIn</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Collapse longer creative-process sections so the page stays easy to scan.
+      // This avoids injecting raw text with innerHTML, which prevents quote/newline parsing bugs.
+      document.addEventListener("DOMContentLoaded", function () {
+        var characterLimit = 750;
+        var notes = document.querySelectorAll(".creative-note");
+
+        function createPreviewParagraph(text) {
+          var paragraph = document.createElement("p");
+          paragraph.textContent = text;
+          return paragraph;
+        }
+
+        function runReadMoreTests() {
+          console.assert(
+            typeof createPreviewParagraph === "function",
+            "Read more helper should exist.",
+          );
+          console.assert(
+            characterLimit === 750,
+            "Character limit should remain 750.",
+          );
+        }
+
+        runReadMoreTests();
+
+        notes.forEach(function (note) {
+          var heading = note.querySelector("strong");
+          var paragraphs = Array.from(note.querySelectorAll("p"));
+          var fullText = paragraphs
+            .map(function (paragraph) {
+              return paragraph.textContent.trim();
+            })
+            .join("\n\n");
+
+          if (fullText.length <= characterLimit) {
+            return;
+          }
+
+          var fullParagraphTexts = paragraphs.map(function (paragraph) {
+            return paragraph.textContent.trim();
+          });
+          var previewText = fullText.slice(0, characterLimit).trim() + "…";
+
+          paragraphs.forEach(function (paragraph) {
+            paragraph.remove();
+          });
+
+          var body = document.createElement("div");
+          body.className = "creative-note-body";
+          body.appendChild(createPreviewParagraph(previewText));
+
+          var button = document.createElement("button");
+          button.className = "read-more-btn";
+          button.type = "button";
+          button.textContent = "Read more";
+          button.setAttribute("aria-expanded", "false");
+
+          button.addEventListener("click", function () {
+            var isExpanded = button.getAttribute("aria-expanded") === "true";
+
+            body.textContent = "";
+
+            if (isExpanded) {
+              body.appendChild(createPreviewParagraph(previewText));
+              button.textContent = "Read more";
+              button.setAttribute("aria-expanded", "false");
+            } else {
+              fullParagraphTexts.forEach(function (paragraphText) {
+                body.appendChild(createPreviewParagraph(paragraphText));
+              });
+              button.textContent = "Show less";
+              button.setAttribute("aria-expanded", "true");
+            }
+          });
+
+          if (heading) {
+            heading.insertAdjacentElement("afterend", body);
+            body.insertAdjacentElement("afterend", button);
+          } else {
+            note.appendChild(body);
+            note.appendChild(button);
+          }
+        });
+      });
+    </script>
+
+    <footer>
+      <div class="container">© 2026 Adam Rakhamim. AI Creative Portfolio.</div>
+    </footer>
+  </body>
+</html>

@@ -5,48 +5,56 @@ window.YOUTUBE_SHORTS_FEED = {
     {
       "id": "dEHTG7YYtNY",
       "title": "Day 802: Water #runwaydailychallenge",
+      "description": "",
       "url": "https://www.youtube.com/shorts/dEHTG7YYtNY",
       "thumbnail": "https://i.ytimg.com/vi/dEHTG7YYtNY/frame0.jpg"
     },
     {
       "id": "sdtvhBlU8c4",
       "title": "Day 801: Glitch",
+      "description": "Technology can glitch out in the worst of times 😅 \n#RunwayDailyChallenge",
       "url": "https://www.youtube.com/shorts/sdtvhBlU8c4",
       "thumbnail": "https://i.ytimg.com/vi/sdtvhBlU8c4/frame0.jpg"
     },
     {
       "id": "AhPS19GjFJA",
       "title": "Day 800: Hijack #runwaydailychallenge",
+      "description": "For the challenge word \"hijack,\" I chose to avoid the usual associations, such as hijacking an airplane or a vehicle. Instead, I decided to focus on something that is more common and occurs on a smaller scale: cyber hijacking.",
       "url": "https://www.youtube.com/shorts/AhPS19GjFJA",
       "thumbnail": "https://i.ytimg.com/vi/AhPS19GjFJA/frame0.jpg"
     },
     {
       "id": "19J9tFUJv2I",
       "title": "Day 799: Mixed Media",
+      "description": "",
       "url": "https://www.youtube.com/shorts/19J9tFUJv2I",
       "thumbnail": "https://i.ytimg.com/vi/19J9tFUJv2I/frame0.jpg"
     },
     {
       "id": "wZ_aVsuQIGA",
       "title": "Day 798: Surprise #runwaydailychallenge",
+      "description": "Some surprises are meant to be seen 🤓#proposal #fail",
       "url": "https://www.youtube.com/shorts/wZ_aVsuQIGA",
       "thumbnail": "https://i.ytimg.com/vi/wZ_aVsuQIGA/frame0.jpg"
     },
     {
       "id": "H4UaFkSugyI",
       "title": "Day 797: Reverse #runwaydailychallenge",
+      "description": "",
       "url": "https://www.youtube.com/shorts/H4UaFkSugyI",
       "thumbnail": "https://i.ytimg.com/vi/H4UaFkSugyI/frame0.jpg"
     },
     {
       "id": "efNLIdOJTaM",
       "title": "Day 796: Rack Focus #runwaydailychallenge",
+      "description": "",
       "url": "https://www.youtube.com/shorts/efNLIdOJTaM",
       "thumbnail": "https://i.ytimg.com/vi/efNLIdOJTaM/frame0.jpg"
     },
     {
       "id": "u2XjfF4-0NM",
       "title": "Day 794: Architecture #runwaydailychallenge",
+      "description": "#runwaydailychallenge",
       "url": "https://www.youtube.com/shorts/u2XjfF4-0NM",
       "thumbnail": "https://i.ytimg.com/vi/u2XjfF4-0NM/frame0.jpg"
     }

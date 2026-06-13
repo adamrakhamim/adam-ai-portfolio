@@ -100,14 +100,49 @@
       .hero .container {
         position: relative;
         z-index: 1;
+        width: min(1240px, 92%);
       }
 
-      .hero-grid {
+      .hero-top {
         display: grid;
-        grid-template-columns: 0.9fr 1.1fr;
-        gap: 64px;
-        align-items: center;
-        min-height: 400px;
+        grid-template-columns: 0.88fr 1.12fr;
+        column-gap: 58px;
+        row-gap: 0;
+        align-items: start;
+      }
+
+      .hero-heading {
+        display: contents;
+      }
+
+      .hero-heading .eyebrow {
+        grid-column: 1;
+        grid-row: 1;
+        align-self: start;
+        justify-self: start;
+      }
+
+      .hero-heading h1 {
+        grid-column: 1;
+        grid-row: 2;
+        align-self: start;
+      }
+
+      .hero-heading .hero-text {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        width: 100%;
+        max-width: none;
+        margin-top: 42px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(104, 117, 139, 0.2);
+      }
+
+      .hero-heading .buttons {
+        grid-column: 1 / -1;
+        grid-row: 4;
+        justify-content: center;
+        margin-top: 24px;
       }
 
       .eyebrow {
@@ -131,7 +166,6 @@
         font-size: clamp(2.7rem, 5.4vw, 4.8rem);
         line-height: 1;
         letter-spacing: -0.065em;
-        margin-bottom: 24px;
         color: #17233b;
       }
 
@@ -158,8 +192,8 @@
       }
 
       .hero-text {
-        font-size: 1.15rem;
-        max-width: 720px;
+        max-width: 1040px;
+        font-size: 1.18rem;
         color: #46556c;
       }
 
@@ -210,6 +244,7 @@
       .btn:focus-visible,
       .nav-links a:focus-visible,
       .link:focus-visible,
+      .scroll-cue:focus-visible,
       .read-more-btn:focus-visible,
       .carousel-btn:focus-visible,
       .short-modal-close:focus-visible {
@@ -218,6 +253,8 @@
       }
 
       .hero-video-card {
+        grid-column: 2;
+        grid-row: 2;
         padding: 14px;
         border-radius: 28px;
         background: #ffffff;
@@ -249,6 +286,56 @@
         width: 100%;
         height: 100%;
         border: 0;
+      }
+
+      .scroll-cue {
+        grid-column: 1 / -1;
+        grid-row: 5;
+        display: flex;
+        width: fit-content;
+        flex-direction: column;
+        align-items: center;
+        gap: 7px;
+        margin: 34px auto 0;
+        color: #5141a6;
+        font-size: 0.75rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .scroll-cue-arrow {
+        display: grid;
+        width: 34px;
+        height: 46px;
+        place-items: center;
+        border: 1px solid #bbb2e7;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.68);
+        font-size: 1rem;
+        animation: scroll-cue-bounce 1.8s ease-in-out infinite;
+      }
+
+      .scroll-cue:hover .scroll-cue-arrow {
+        color: #ffffff;
+        background: #5141a6;
+        border-color: #5141a6;
+      }
+
+      @keyframes scroll-cue-bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(5px);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .scroll-cue-arrow {
+          animation: none;
+        }
       }
 
       section {
@@ -721,6 +808,9 @@
 
       .short-modal-copy p {
         margin-bottom: 20px;
+        max-height: 220px;
+        overflow-y: auto;
+        white-space: pre-line;
       }
 
       .short-modal-close {
@@ -772,7 +862,7 @@
       }
 
       @media (max-width: 860px) {
-        .hero-grid,
+        .hero-top,
         .grid,
         .grid.two,
         .competition-grid {
@@ -806,9 +896,42 @@
           padding-bottom: 64px;
         }
 
-        .hero-grid {
-          gap: 46px;
-          min-height: auto;
+        .hero-top {
+          column-gap: 0;
+          row-gap: 0;
+        }
+
+        .hero-heading .eyebrow {
+          grid-column: 1;
+          grid-row: 1;
+          margin-top: 0;
+        }
+
+        .hero-heading h1 {
+          grid-column: 1;
+          grid-row: 2;
+        }
+
+        .hero-video-card {
+          grid-column: 1;
+          grid-row: 3;
+        }
+
+        .hero-heading .hero-text {
+          grid-column: 1;
+          grid-row: 4;
+          margin-top: 0;
+          padding-top: 26px;
+        }
+
+        .hero-heading .buttons {
+          grid-column: 1;
+          grid-row: 5;
+        }
+
+        .scroll-cue {
+          grid-column: 1;
+          grid-row: 6;
         }
 
         h1 {
@@ -858,8 +981,8 @@
       <div class="container nav">
         <a class="logo" href="#top">Adam Rakhamim</a>
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="#competitions">AI Video Competitions</a>
           <a href="#shorts">Latest Shorts</a>
+          <a href="#competitions">AI Video Competitions</a>
           <a href="#music-video">Song + Music Videos</a>
           <a href="#songs">Songs</a>
           <a href="#publications">Publications</a>
@@ -875,8 +998,8 @@
 
     <main id="top">
       <section class="hero">
-        <div class="container hero-grid">
-          <div>
+        <div class="container hero-top">
+          <div class="hero-heading">
             <div class="eyebrow">AI Creative Portfolio</div>
             <h1>
               Creative work made with imagination, AI, and experimentation.
@@ -889,9 +1012,8 @@
               personal creative expression.
             </p>
             <div class="buttons">
-              <a class="btn btn-primary" href="#music-video">View Projects</a>
               <a
-                class="btn"
+                class="btn btn-primary"
                 href="https://www.linkedin.com/in/adamrakhamim/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -906,7 +1028,7 @@
             </div>
             <div class="hero-video">
               <iframe
-                src="https://www.youtube.com/embed/rct4Y1nYnBk?rel=0"
+                src="https://www.youtube.com/embed/rct4Y1nYnBk?autoplay=1&mute=1&loop=1&playlist=rct4Y1nYnBk&playsinline=1&rel=0"
                 title="Adam's AI avatar introduction"
                 allow="
                   accelerometer;
@@ -922,6 +1044,62 @@
               ></iframe>
             </div>
           </div>
+
+          <a class="scroll-cue" href="#shorts" aria-label="Scroll to latest Shorts">
+            <span>Explore the work</span>
+            <span class="scroll-cue-arrow" aria-hidden="true">&darr;</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="shorts-section" id="shorts">
+        <div class="container">
+          <div class="shorts-heading">
+            <div class="section-header">
+              <div class="eyebrow">Always Updating</div>
+              <h2>Latest YouTube Shorts</h2>
+              <p>
+                New AI video experiments appear here automatically after they
+                are published on YouTube.
+              </p>
+            </div>
+            <div class="carousel-controls" aria-label="Shorts carousel controls">
+              <button
+                class="carousel-btn"
+                id="shorts-prev"
+                type="button"
+                aria-label="Show previous Shorts"
+              >
+                &larr;
+              </button>
+              <button
+                class="carousel-btn"
+                id="shorts-next"
+                type="button"
+                aria-label="Show next Shorts"
+              >
+                &rarr;
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="shorts-carousel"
+            id="shorts-carousel"
+            aria-live="polite"
+          ></div>
+          <p class="shorts-status" id="shorts-status">
+            Loading the latest Shorts...
+          </p>
+          <noscript>
+            <a
+              class="link"
+              href="https://www.youtube.com/@mindofAR/shorts"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View Shorts on YouTube</a
+            >
+          </noscript>
         </div>
       </section>
 
@@ -1037,57 +1215,6 @@
               >
             </article>
           </div>
-        </div>
-      </section>
-
-      <section class="shorts-section" id="shorts">
-        <div class="container">
-          <div class="shorts-heading">
-            <div class="section-header">
-              <div class="eyebrow">Always Updating</div>
-              <h2>Latest YouTube Shorts</h2>
-              <p>
-                New AI video experiments appear here automatically after they
-                are published on YouTube.
-              </p>
-            </div>
-            <div class="carousel-controls" aria-label="Shorts carousel controls">
-              <button
-                class="carousel-btn"
-                id="shorts-prev"
-                type="button"
-                aria-label="Show previous Shorts"
-              >
-                &larr;
-              </button>
-              <button
-                class="carousel-btn"
-                id="shorts-next"
-                type="button"
-                aria-label="Show next Shorts"
-              >
-                &rarr;
-              </button>
-            </div>
-          </div>
-
-          <div
-            class="shorts-carousel"
-            id="shorts-carousel"
-            aria-live="polite"
-          ></div>
-          <p class="shorts-status" id="shorts-status">
-            Loading the latest Shorts...
-          </p>
-          <noscript>
-            <a
-              class="link"
-              href="https://www.youtube.com/@mindofAR/shorts"
-              target="_blank"
-              rel="noopener noreferrer"
-              >View Shorts on YouTube</a
-            >
-          </noscript>
         </div>
       </section>
 
@@ -1671,7 +1798,7 @@
         <div class="short-modal-copy">
           <span class="tag">YouTube Short</span>
           <h3 id="short-modal-title">YouTube Short</h3>
-          <p>Playing here so you can keep exploring the portfolio.</p>
+          <p id="short-modal-description" hidden></p>
           <a
             class="link"
             id="short-modal-youtube"
@@ -1779,6 +1906,9 @@
         var shortModalIframe = document.getElementById("short-modal-iframe");
         var shortLocalNotice = document.getElementById("short-local-notice");
         var shortModalTitle = document.getElementById("short-modal-title");
+        var shortModalDescription = document.getElementById(
+          "short-modal-description",
+        );
         var shortModalYoutube = document.getElementById("short-modal-youtube");
         var lastFocusedShort = null;
         var allShorts = [];
@@ -1789,6 +1919,8 @@
           lastFocusedShort = trigger;
           shortModalTitle.textContent = short.title;
           shortModalYoutube.href = short.url;
+          shortModalDescription.textContent = short.description || "";
+          shortModalDescription.hidden = !short.description;
 
           if (window.location.protocol === "file:") {
             shortModalIframe.hidden = true;

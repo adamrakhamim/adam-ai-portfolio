@@ -4,41 +4,80 @@ const outputPath = "shorts.json";
 const browserOutputPath = "shorts-data.js";
 const channelUrl = "https://www.youtube.com/@mindofAR/shorts";
 
-let input = "";
+function readBrowserFeed(path) {
+  if (!fs.existsSync(path)) {
+    return null;
+  }
 
-for await (const chunk of process.stdin) {
-  input += chunk;
+  return JSON.parse(
+    fs
+      .readFileSync(path, "utf8")
+      .replace(/^window\.YOUTUBE_SHORTS_FEED\s*=\s*/, "")
+      .replace(/;\s*$/, ""),
+  );
 }
 
-const feed = JSON.parse(input);
-const shorts = (feed.entries || [])
+let flatFeed;
+let detailedFeed = { entries: [] };
+
+if (process.argv[2]) {
+  flatFeed = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
+
+  if (process.argv[3] && fs.existsSync(process.argv[3])) {
+    detailedFeed = JSON.parse(fs.readFileSync(process.argv[3], "utf8"));
+  }
+} else {
+  let input = "";
+
+  for await (const chunk of process.stdin) {
+    input += chunk;
+  }
+
+  flatFeed = JSON.parse(input);
+}
+
+const existing = fs.existsSync(outputPath)
+  ? JSON.parse(fs.readFileSync(outputPath, "utf8"))
+  : null;
+const existingBrowserData = readBrowserFeed(browserOutputPath);
+const existingById = new Map(
+  (existing?.shorts || existingBrowserData?.shorts || []).map((short) => [
+    short.id,
+    short,
+  ]),
+);
+const detailedById = new Map(
+  (detailedFeed.entries || [])
+    .filter((entry) => entry && entry.id)
+    .map((entry) => [entry.id, entry]),
+);
+
+const shorts = (flatFeed.entries || [])
   .filter((entry) => entry && entry.id)
-  .map((entry) => ({
-    id: entry.id,
-    title: entry.title || "YouTube Short",
-    url: `https://www.youtube.com/shorts/${entry.id}`,
-    thumbnail: `https://i.ytimg.com/vi/${entry.id}/frame0.jpg`,
-  }));
+  .map((entry) => {
+    const detailedEntry = detailedById.get(entry.id);
+    const existingShort = existingById.get(entry.id);
+    const description =
+      detailedEntry?.description?.trim() || existingShort?.description || "";
+
+    return {
+      id: entry.id,
+      title: entry.title || "YouTube Short",
+      description,
+      url: `https://www.youtube.com/shorts/${entry.id}`,
+      thumbnail: `https://i.ytimg.com/vi/${entry.id}/frame0.jpg`,
+    };
+  });
 
 const output = {
   channelUrl,
   updatedAt: new Date().toISOString(),
   shorts,
 };
-const existing = fs.existsSync(outputPath)
-  ? JSON.parse(fs.readFileSync(outputPath, "utf8"))
-  : null;
 const existingBrowserFeed = fs.existsSync(browserOutputPath)
   ? fs.readFileSync(browserOutputPath, "utf8")
   : "";
 const browserFeed = `window.YOUTUBE_SHORTS_FEED = ${JSON.stringify(output, null, 2)};\n`;
-const existingBrowserData = existingBrowserFeed
-  ? JSON.parse(
-      existingBrowserFeed
-        .replace(/^window\.YOUTUBE_SHORTS_FEED\s*=\s*/, "")
-        .replace(/;\s*$/, ""),
-    )
-  : null;
 const shortsUnchanged =
   existing && JSON.stringify(existing.shorts) === JSON.stringify(shorts);
 const browserShortsUnchanged =

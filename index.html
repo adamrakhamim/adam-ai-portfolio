@@ -24,8 +24,8 @@
       body {
         font-family: Arial, Helvetica, sans-serif;
         line-height: 1.6;
-        color: #f5f3ff;
-        background: #0b1020;
+        color: #17233b;
+        background: #fbfaf6;
       }
 
       a {
@@ -42,9 +42,9 @@
         position: sticky;
         top: 0;
         z-index: 100;
-        background: rgba(11, 16, 32, 0.9);
+        background: rgba(255, 255, 252, 0.9);
         backdrop-filter: blur(14px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid #e5e8ec;
       }
 
       .nav {
@@ -59,6 +59,7 @@
         font-weight: 800;
         letter-spacing: -0.03em;
         font-size: 1.1rem;
+        color: #18233e;
       }
 
       .nav-links {
@@ -66,37 +67,33 @@
         align-items: center;
         gap: 20px;
         font-size: 0.95rem;
-        color: #c7c9d9;
+        color: #526078;
       }
 
-      .nav-links a:hover {
-        color: #ffffff;
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        color: #6551c7;
       }
 
       .hero {
         position: relative;
-        padding: 110px 0 90px;
+        padding: 96px 0 92px;
         background:
-          linear-gradient(rgba(8, 12, 24, 0.7), rgba(8, 12, 24, 0.84)),
-          url("images/adam-ai-header.png") center center / cover no-repeat;
+          radial-gradient(circle at 10% 10%, #fff0bd 0, transparent 34%),
+          radial-gradient(circle at 92% 12%, #d9f6f0 0, transparent 35%),
+          linear-gradient(135deg, #fffaf0 0%, #f5f2ff 52%, #ecfbff 100%);
         overflow: hidden;
       }
 
       .hero::before {
         content: "";
         position: absolute;
-        inset: 0;
-        background:
-          radial-gradient(
-            circle at top left,
-            rgba(112, 97, 255, 0.28),
-            transparent 32%
-          ),
-          radial-gradient(
-            circle at bottom right,
-            rgba(0, 229, 255, 0.16),
-            transparent 28%
-          );
+        width: 220px;
+        height: 220px;
+        right: 6%;
+        bottom: -120px;
+        border-radius: 50%;
+        background: rgba(255, 178, 139, 0.35);
         pointer-events: none;
       }
 
@@ -107,10 +104,10 @@
 
       .hero-grid {
         display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 48px;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 64px;
         align-items: center;
-        min-height: 430px;
+        min-height: 400px;
       }
 
       .eyebrow {
@@ -118,10 +115,10 @@
         align-items: center;
         gap: 8px;
         padding: 8px 12px;
-        border: 1px solid rgba(255, 255, 255, 0.16);
+        border: 1px solid #d8d1f3;
         border-radius: 999px;
-        color: #b9c2ff;
-        background: rgba(255, 255, 255, 0.08);
+        color: #5e4ab5;
+        background: rgba(255, 255, 255, 0.7);
         font-size: 0.82rem;
         font-weight: 700;
         text-transform: uppercase;
@@ -130,10 +127,12 @@
       }
 
       h1 {
-        font-size: clamp(2.5rem, 6vw, 5.2rem);
-        line-height: 0.98;
-        letter-spacing: -0.07em;
+        max-width: 720px;
+        font-size: clamp(2.7rem, 5.4vw, 4.8rem);
+        line-height: 1;
+        letter-spacing: -0.065em;
         margin-bottom: 24px;
+        color: #17233b;
       }
 
       h2 {
@@ -150,18 +149,18 @@
       }
 
       .title-translation {
-        color: #aeb6dd;
+        color: #65728a;
         font-weight: 600;
       }
 
       p {
-        color: #c7c9d9;
+        color: #536178;
       }
 
       .hero-text {
         font-size: 1.15rem;
         max-width: 720px;
-        color: #e4e7ff;
+        color: #46556c;
       }
 
       .buttons {
@@ -179,50 +178,94 @@
         padding: 13px 20px;
         border-radius: 999px;
         font-weight: 800;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background: rgba(255, 255, 255, 0.06);
+        color: #26344f;
+        border: 1px solid #cdd5df;
+        background: rgba(255, 255, 255, 0.75);
         transition:
           transform 0.2s ease,
           background 0.2s ease,
           border-color 0.2s ease;
       }
 
-      .btn:hover {
+      .btn:not(.btn-primary):hover {
         transform: translateY(-2px);
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.4);
+        background: #ffffff;
+        border-color: #9d91d9;
       }
 
       .btn-primary {
-        color: #07111f;
-        background: linear-gradient(135deg, #8ee7ff, #c7b7ff);
+        color: #ffffff;
+        background: linear-gradient(135deg, #6d5bd0, #3089a5);
         border: none;
+        box-shadow: 0 12px 30px rgba(89, 75, 184, 0.2);
       }
 
-      .hero-panel {
-        padding: 28px;
+      .btn-primary:hover {
+        color: #ffffff;
+        background: linear-gradient(135deg, #5845c2, #23758f);
+        box-shadow: 0 16px 34px rgba(72, 61, 164, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .btn:focus-visible,
+      .nav-links a:focus-visible,
+      .link:focus-visible,
+      .read-more-btn:focus-visible,
+      .carousel-btn:focus-visible,
+      .short-modal-close:focus-visible {
+        outline: 3px solid #6d5bd0;
+        outline-offset: 3px;
+      }
+
+      .hero-video-card {
+        padding: 14px;
         border-radius: 28px;
-        background: rgba(11, 16, 32, 0.52);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.26);
+        background: #ffffff;
+        border: 1px solid rgba(91, 78, 159, 0.12);
+        box-shadow: 0 24px 70px rgba(77, 86, 118, 0.18);
       }
 
-      .hero-panel strong {
-        display: block;
-        font-size: 3rem;
-        line-height: 1;
-        margin-bottom: 10px;
-        letter-spacing: -0.06em;
+      .hero-video-label {
+        padding: 8px 10px 15px;
+        color: #394761;
+        font-size: 0.9rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
       }
 
-      .hero-panel span {
-        color: #d3d8f8;
+      .hero-video {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 20px;
+        background: #05070e;
+      }
+
+      .hero-video iframe,
+      .competition-video iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
       }
 
       section {
         padding: 78px 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 1px solid #e7e9ed;
+      }
+
+      #music-video {
+        background: #f7f5ff;
+      }
+
+      #songs {
+        background: #ffffff;
+      }
+
+      #publications {
+        background: #f2f9ff;
       }
 
       .section-header {
@@ -251,8 +294,8 @@
         aspect-ratio: 16 / 9;
         margin: 18px 0;
         border-radius: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid #dce2e9;
+        background: #edf0f4;
       }
 
       .song-player iframe {
@@ -267,8 +310,9 @@
         min-height: 100%;
         padding: 24px;
         border-radius: 24px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.11);
+        background: #ffffff;
+        border: 1px solid #e0e5eb;
+        box-shadow: 0 14px 36px rgba(54, 69, 99, 0.08);
         transition:
           transform 0.2s ease,
           border-color 0.2s ease,
@@ -281,8 +325,8 @@
         object-fit: cover;
         border-radius: 18px;
         margin-bottom: 18px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid #dce2e9;
+        background: #edf0f4;
       }
 
       .publication-cover.portrait {
@@ -294,8 +338,9 @@
 
       .card:hover {
         transform: translateY(-4px);
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(142, 231, 255, 0.35);
+        background: #ffffff;
+        border-color: #b9aceb;
+        box-shadow: 0 18px 42px rgba(54, 69, 99, 0.13);
       }
 
       .tag {
@@ -303,9 +348,9 @@
         margin-bottom: 16px;
         padding: 6px 10px;
         border-radius: 999px;
-        color: #8ee7ff;
-        background: rgba(142, 231, 255, 0.09);
-        border: 1px solid rgba(142, 231, 255, 0.16);
+        color: #4d3da0;
+        background: #eeeafd;
+        border: 1px solid #d8d1f3;
         font-size: 0.78rem;
         font-weight: 800;
         text-transform: uppercase;
@@ -319,13 +364,13 @@
       .creative-note {
         margin-top: 24px;
         padding-top: 20px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: 1px solid #e1e5eb;
         font-size: 1rem;
       }
 
       .creative-note strong {
         display: block;
-        color: #ffffff;
+        color: #1f2d47;
         margin-bottom: 16px;
       }
 
@@ -343,9 +388,9 @@
         margin-top: 16px;
         padding: 9px 14px;
         border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: #ffffff;
-        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid #cbd3de;
+        color: #34415b;
+        background: #ffffff;
         font-weight: 800;
         cursor: pointer;
         transition:
@@ -353,17 +398,25 @@
           transform 0.2s ease;
       }
 
-      .read-more-btn:hover {
+      .read-more-btn:hover,
+      .read-more-btn:focus-visible {
         transform: translateY(-1px);
-        background: rgba(255, 255, 255, 0.12);
+        background: #f3f0ff;
+        border-color: #9d91d9;
       }
 
       .link {
         display: inline-flex;
         margin-top: 8px;
         font-weight: 800;
-        color: #ffffff;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        color: #5141a6;
+        border-bottom: 1px solid #9f93d8;
+      }
+
+      .link:hover,
+      .link:focus-visible {
+        color: #352677;
+        border-bottom-color: #352677;
       }
 
       .feature-card {
@@ -371,10 +424,11 @@
         border-radius: 30px;
         background: linear-gradient(
           135deg,
-          rgba(112, 97, 255, 0.22),
-          rgba(0, 229, 255, 0.1)
+          #ffffff,
+          #eff9fb
         );
-        border: 1px solid rgba(255, 255, 255, 0.14);
+        border: 1px solid #d9e3e9;
+        box-shadow: 0 14px 38px rgba(54, 69, 99, 0.08);
       }
 
       .feature-card + .feature-card {
@@ -388,8 +442,8 @@
         aspect-ratio: 16 / 9;
         margin-top: 24px;
         border-radius: 22px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid #dce2e9;
+        background: #edf0f4;
       }
 
       .video-embed iframe {
@@ -400,9 +454,306 @@
         border: 0;
       }
 
+      .competition-section {
+        background:
+          radial-gradient(
+            circle at 10% 10%,
+            rgba(120, 223, 211, 0.28),
+            transparent 30%
+          ),
+          radial-gradient(
+            circle at 90% 80%,
+            rgba(255, 209, 168, 0.3),
+            transparent 32%
+          ),
+          #f4fcfa;
+      }
+
+      .competition-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        align-items: stretch;
+      }
+
+      .competition-card {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        padding: 18px;
+        border-radius: 26px;
+        background: #ffffff;
+        border: 1px solid #dce8e5;
+        box-shadow: 0 14px 36px rgba(54, 69, 99, 0.08);
+      }
+
+      .competition-card h3 {
+        margin-top: 16px;
+      }
+
+      .competition-card p {
+        margin-bottom: 16px;
+      }
+
+      .competition-card .link {
+        align-self: flex-start;
+        margin-top: auto;
+      }
+
+      .competition-video {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 18px;
+        background: #05070e;
+        border: 1px solid #dce2e9;
+      }
+
+      .shorts-section {
+        overflow: hidden;
+        background: #fff8ed;
+      }
+
+      .shorts-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 30px;
+      }
+
+      .shorts-heading .section-header {
+        margin-bottom: 0;
+      }
+
+      .carousel-controls {
+        display: flex;
+        gap: 10px;
+        flex: 0 0 auto;
+      }
+
+      .carousel-btn {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        border: 1px solid #d7dce4;
+        color: #34415b;
+        background: #ffffff;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .carousel-btn:hover,
+      .carousel-btn:focus-visible {
+        transform: translateY(-2px);
+        background: #f2efff;
+        border-color: #9d91d9;
+      }
+
+      .shorts-carousel {
+        display: flex;
+        gap: 18px;
+        overflow-x: auto;
+        padding: 4px 2px 18px;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+      }
+
+      .shorts-carousel::-webkit-scrollbar {
+        display: none;
+      }
+
+      .short-card {
+        position: relative;
+        flex: 0 0 min(240px, 72vw);
+        overflow: hidden;
+        aspect-ratio: 9 / 16;
+        padding: 0;
+        border-radius: 24px;
+        background: #ffffff;
+        border: 1px solid #e0e5eb;
+        box-shadow: 0 12px 28px rgba(54, 69, 99, 0.12);
+        scroll-snap-align: start;
+        color: inherit;
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .short-card:hover,
+      .short-card:focus-visible {
+        transform: translateY(-4px);
+        border-color: #a99ce0;
+        outline: none;
+        box-shadow:
+          0 12px 28px rgba(54, 69, 99, 0.12),
+          0 0 0 4px rgba(109, 91, 208, 0.15);
+      }
+
+      .short-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .short-card::after {
+        content: "";
+        position: absolute;
+        inset: 30% 0 0;
+        background: linear-gradient(transparent, rgba(4, 6, 14, 0.94));
+        pointer-events: none;
+      }
+
+      .short-card-copy {
+        position: absolute;
+        z-index: 1;
+        right: 16px;
+        bottom: 16px;
+        left: 16px;
+      }
+
+      .short-card-copy strong {
+        display: block;
+        line-height: 1.25;
+        color: #ffffff;
+      }
+
+      .short-card-copy span {
+        display: block;
+        margin-top: 6px;
+        color: #e8edf8;
+        font-size: 0.82rem;
+        font-weight: 700;
+      }
+
+      .shorts-status {
+        margin-top: 8px;
+        color: #68758b;
+        font-size: 0.9rem;
+      }
+
+      .short-modal {
+        position: fixed;
+        z-index: 300;
+        inset: 0;
+        display: none;
+        place-items: center;
+        padding: 24px;
+        background: rgba(21, 29, 47, 0.76);
+        backdrop-filter: blur(12px);
+      }
+
+      .short-modal.is-open {
+        display: grid;
+      }
+
+      .short-modal-panel {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(260px, 42vh) minmax(220px, 300px);
+        gap: 26px;
+        align-items: center;
+        max-width: min(94vw, 760px);
+        padding: 18px;
+        border-radius: 30px;
+        background: #ffffff;
+        box-shadow: 0 28px 90px rgba(12, 18, 32, 0.32);
+      }
+
+      .short-modal-player {
+        position: relative;
+        overflow: hidden;
+        width: min(42vh, 100%);
+        aspect-ratio: 9 / 16;
+        border-radius: 20px;
+        background: #05070e;
+      }
+
+      .short-modal-player iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .short-local-notice {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-content: center;
+        padding: 30px;
+        color: #ffffff;
+        text-align: center;
+        background: linear-gradient(145deg, #2f3e5b, #171f31);
+      }
+
+      .short-local-notice[hidden] {
+        display: none;
+      }
+
+      .short-local-notice strong {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+      }
+
+      .short-local-notice span {
+        color: #dce5f6;
+      }
+
+      .short-modal-copy {
+        padding: 20px 12px 20px 0;
+      }
+
+      .short-modal-copy h3 {
+        margin-bottom: 14px;
+        font-size: 1.7rem;
+      }
+
+      .short-modal-copy p {
+        margin-bottom: 20px;
+      }
+
+      .short-modal-close {
+        position: absolute;
+        z-index: 1;
+        top: 12px;
+        right: 12px;
+        width: 42px;
+        height: 42px;
+        border: 1px solid #d7dce4;
+        border-radius: 50%;
+        color: #26344f;
+        background: #ffffff;
+        font-size: 1.4rem;
+        cursor: pointer;
+        box-shadow: 0 8px 22px rgba(54, 69, 99, 0.14);
+      }
+
+      .short-modal-close:hover,
+      .short-modal-close:focus-visible {
+        color: #ffffff;
+        background: #5141a6;
+        border-color: #5141a6;
+      }
+
+      body.modal-open {
+        overflow: hidden;
+      }
+
       .contact {
         text-align: center;
         padding-bottom: 96px;
+        background: linear-gradient(135deg, #f4f0ff, #fff3e9);
       }
 
       .contact p {
@@ -413,8 +764,9 @@
 
       footer {
         padding: 28px 0;
-        color: #9da3c5;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        color: #68758b;
+        background: #ffffff;
+        border-top: 1px solid #e7e9ed;
         text-align: center;
         font-size: 0.92rem;
       }
@@ -422,32 +774,81 @@
       @media (max-width: 860px) {
         .hero-grid,
         .grid,
-        .grid.two {
+        .grid.two,
+        .competition-grid {
           grid-template-columns: 1fr;
         }
 
         .nav {
           align-items: flex-start;
           flex-direction: column;
-          padding: 18px 0;
+          gap: 10px;
+          padding: 13px 0 10px;
         }
 
         .nav-links {
-          flex-wrap: wrap;
-          gap: 12px 16px;
+          width: 100%;
+          flex-wrap: nowrap;
+          gap: 18px;
+          padding-bottom: 3px;
+          overflow-x: auto;
+          white-space: nowrap;
+          font-size: 0.86rem;
+          scrollbar-width: none;
+        }
+
+        .nav-links::-webkit-scrollbar {
+          display: none;
         }
 
         .hero {
-          padding-top: 70px;
-          padding-bottom: 70px;
+          padding-top: 58px;
+          padding-bottom: 64px;
         }
 
         .hero-grid {
+          gap: 46px;
           min-height: auto;
+        }
+
+        h1 {
+          font-size: clamp(2.65rem, 13vw, 4rem);
         }
 
         .feature-card {
           padding: 28px;
+        }
+
+        .shorts-heading {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .short-modal {
+          padding: 12px;
+        }
+
+        .short-modal-panel {
+          display: block;
+          width: min(100%, 390px);
+          max-height: 96vh;
+          padding: 12px;
+          overflow-y: auto;
+          border-radius: 24px;
+        }
+
+        .short-modal-player {
+          width: 100%;
+          max-height: 76vh;
+        }
+
+        .short-modal-copy {
+          padding: 18px 8px 10px;
+        }
+
+        .short-modal-copy h3 {
+          padding-right: 42px;
+          font-size: 1.35rem;
         }
       }
     </style>
@@ -457,6 +858,8 @@
       <div class="container nav">
         <a class="logo" href="#top">Adam Rakhamim</a>
         <nav class="nav-links" aria-label="Main navigation">
+          <a href="#competitions">AI Video Competitions</a>
+          <a href="#shorts">Latest Shorts</a>
           <a href="#music-video">Song + Music Videos</a>
           <a href="#songs">Songs</a>
           <a href="#publications">Publications</a>
@@ -497,13 +900,194 @@
             </div>
           </div>
 
-          <aside class="hero-panel" aria-label="Portfolio summary">
-            <strong>AI + Creativity</strong>
-            <span>
-              Music videos, songs, publications, and experiments that combine
-              human ideas with modern AI tools.
-            </span>
-          </aside>
+          <div class="hero-video-card">
+            <div class="hero-video-label">
+              <span>Meet Adam's AI avatar</span>
+            </div>
+            <div class="hero-video">
+              <iframe
+                src="https://www.youtube.com/embed/rct4Y1nYnBk?rel=0"
+                title="Adam's AI avatar introduction"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="competition-section" id="competitions">
+        <div class="container">
+          <div class="section-header">
+            <div class="eyebrow">Creative Challenges</div>
+            <h2>AI Video Competitions</h2>
+            <p>
+              Short-form experiments made under competition constraints, from a
+              trailer for a movie that does not exist to fast Runway ML
+              storytelling challenges.
+            </p>
+          </div>
+
+          <div class="competition-grid">
+            <article class="competition-card featured">
+              <div class="competition-video">
+                <iframe
+                  src="https://www.youtube.com/embed/bgu4FoL2i9o?rel=0"
+                  title="Tyler the Trailer movie trailer"
+                  loading="lazy"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <h3>Tyler the Trailer</h3>
+              <p>
+                A one-minute cartoon trailer for a completely non-existent
+                movie, built as a playful AI filmmaking experiment.
+              </p>
+              <a
+                class="link"
+                href="https://youtu.be/bgu4FoL2i9o"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Watch on YouTube</a
+              >
+            </article>
+
+            <article class="competition-card">
+              <div class="competition-video">
+                <iframe
+                  src="https://www.youtube.com/embed/rNH4LvbWzyk?rel=0"
+                  title="You like my hat? Tiny Sitcom"
+                  loading="lazy"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <h3>You Like My Hat?</h3>
+              <p>
+                A tiny 15-second sitcom made with Runway ML, complete with a
+                premise, punchline, and sitcom timing.
+              </p>
+              <a
+                class="link"
+                href="https://youtu.be/rNH4LvbWzyk"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Watch on YouTube</a
+              >
+            </article>
+
+            <article class="competition-card">
+              <div class="competition-video">
+                <iframe
+                  src="https://www.youtube.com/embed/fTJA8vf6AmU?rel=0"
+                  title="The Date - Runway Daily Challenge"
+                  loading="lazy"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <h3>The Date</h3>
+              <p>
+                My entry for Runway's daily challenge, using a compact visual
+                story to turn a familiar moment into something unexpected.
+              </p>
+              <a
+                class="link"
+                href="https://youtu.be/fTJA8vf6AmU"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Watch on YouTube</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="shorts-section" id="shorts">
+        <div class="container">
+          <div class="shorts-heading">
+            <div class="section-header">
+              <div class="eyebrow">Always Updating</div>
+              <h2>Latest YouTube Shorts</h2>
+              <p>
+                New AI video experiments appear here automatically after they
+                are published on YouTube.
+              </p>
+            </div>
+            <div class="carousel-controls" aria-label="Shorts carousel controls">
+              <button
+                class="carousel-btn"
+                id="shorts-prev"
+                type="button"
+                aria-label="Show previous Shorts"
+              >
+                &larr;
+              </button>
+              <button
+                class="carousel-btn"
+                id="shorts-next"
+                type="button"
+                aria-label="Show next Shorts"
+              >
+                &rarr;
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="shorts-carousel"
+            id="shorts-carousel"
+            aria-live="polite"
+          ></div>
+          <p class="shorts-status" id="shorts-status">
+            Loading the latest Shorts...
+          </p>
+          <noscript>
+            <a
+              class="link"
+              href="https://www.youtube.com/@mindofAR/shorts"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View Shorts on YouTube</a
+            >
+          </noscript>
         </div>
       </section>
 
@@ -1041,6 +1625,66 @@
       </section>
     </main>
 
+    <div
+      class="short-modal"
+      id="short-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="short-modal-title"
+      aria-hidden="true"
+    >
+      <div class="short-modal-panel">
+        <button
+          class="short-modal-close"
+          id="short-modal-close"
+          type="button"
+          aria-label="Close Short"
+        >
+          &times;
+        </button>
+        <div class="short-modal-player">
+          <iframe
+            id="short-modal-iframe"
+            title="YouTube Short player"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <div class="short-local-notice" id="short-local-notice" hidden>
+            <div>
+              <strong>Embedded playback is ready for the live site.</strong>
+              <span>
+                YouTube blocks embedded players when this page is opened
+                directly as a local file.
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="short-modal-copy">
+          <span class="tag">YouTube Short</span>
+          <h3 id="short-modal-title">YouTube Short</h3>
+          <p>Playing here so you can keep exploring the portfolio.</p>
+          <a
+            class="link"
+            id="short-modal-youtube"
+            href="https://www.youtube.com/@mindofAR/shorts"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Open on YouTube</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script src="shorts-data.js"></script>
     <script>
       // Collapse longer creative-process sections so the page stays easy to scan.
       // This avoids injecting raw text with innerHTML, which prevents quote/newline parsing bugs.
@@ -1123,6 +1767,188 @@
           } else {
             note.appendChild(body);
             note.appendChild(button);
+          }
+        });
+
+        var carousel = document.getElementById("shorts-carousel");
+        var status = document.getElementById("shorts-status");
+        var previousButton = document.getElementById("shorts-prev");
+        var nextButton = document.getElementById("shorts-next");
+        var shortModal = document.getElementById("short-modal");
+        var shortModalClose = document.getElementById("short-modal-close");
+        var shortModalIframe = document.getElementById("short-modal-iframe");
+        var shortLocalNotice = document.getElementById("short-local-notice");
+        var shortModalTitle = document.getElementById("short-modal-title");
+        var shortModalYoutube = document.getElementById("short-modal-youtube");
+        var lastFocusedShort = null;
+        var allShorts = [];
+        var renderedShorts = 0;
+        var batchSize = 18;
+
+        function openShortModal(short, trigger) {
+          lastFocusedShort = trigger;
+          shortModalTitle.textContent = short.title;
+          shortModalYoutube.href = short.url;
+
+          if (window.location.protocol === "file:") {
+            shortModalIframe.hidden = true;
+            shortLocalNotice.hidden = false;
+          } else {
+            shortModalIframe.hidden = false;
+            shortLocalNotice.hidden = true;
+            shortModalIframe.src =
+              "https://www.youtube.com/embed/" +
+              short.id +
+              "?autoplay=1&rel=0&playsinline=1";
+          }
+
+          shortModal.classList.add("is-open");
+          shortModal.setAttribute("aria-hidden", "false");
+          document.body.classList.add("modal-open");
+          shortModalClose.focus();
+        }
+
+        function closeShortModal() {
+          shortModal.classList.remove("is-open");
+          shortModal.setAttribute("aria-hidden", "true");
+          shortModalIframe.src = "";
+          shortModalIframe.hidden = false;
+          shortLocalNotice.hidden = true;
+          document.body.classList.remove("modal-open");
+
+          if (lastFocusedShort) {
+            lastFocusedShort.focus();
+          }
+        }
+
+        function createShortCard(short) {
+          var card = document.createElement("button");
+          card.className = "short-card";
+          card.type = "button";
+          card.setAttribute("aria-label", short.title + " - play Short");
+          card.addEventListener("click", function () {
+            openShortModal(short, card);
+          });
+
+          var image = document.createElement("img");
+          image.src = short.thumbnail;
+          image.alt = "";
+          image.loading = "lazy";
+          image.addEventListener("error", function () {
+            image.src = "https://i.ytimg.com/vi/" + short.id + "/hqdefault.jpg";
+          });
+
+          var copy = document.createElement("span");
+          copy.className = "short-card-copy";
+
+          var title = document.createElement("strong");
+          title.textContent = short.title;
+
+          var label = document.createElement("span");
+          label.textContent = "Play Short";
+
+          copy.appendChild(title);
+          copy.appendChild(label);
+          card.appendChild(image);
+          card.appendChild(copy);
+
+          return card;
+        }
+
+        function renderMoreShorts() {
+          var end = Math.min(renderedShorts + batchSize, allShorts.length);
+
+          for (var index = renderedShorts; index < end; index += 1) {
+            carousel.appendChild(createShortCard(allShorts[index]));
+          }
+
+          renderedShorts = end;
+        }
+
+        function showShortsFallback() {
+          status.textContent = "";
+          var link = document.createElement("a");
+          link.className = "link";
+          link.href = "https://www.youtube.com/@mindofAR/shorts";
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = "View the latest Shorts on YouTube";
+          status.appendChild(link);
+        }
+
+        function formatFeedDate(value) {
+          var date = new Date(value);
+
+          if (Number.isNaN(date.getTime())) {
+            return "recently";
+          }
+
+          return date.toLocaleDateString(undefined, {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          });
+        }
+
+        var feed = window.YOUTUBE_SHORTS_FEED;
+        allShorts = feed && Array.isArray(feed.shorts) ? feed.shorts : [];
+
+        if (allShorts.length) {
+          renderMoreShorts();
+          status.textContent =
+            allShorts.length +
+            " Shorts from YouTube. Feed refreshed " +
+            formatFeedDate(feed.updatedAt) +
+            ".";
+        } else {
+          showShortsFallback();
+        }
+
+        previousButton.addEventListener("click", function () {
+          carousel.scrollBy({
+            left: -carousel.clientWidth * 0.82,
+            behavior: "smooth",
+          });
+        });
+
+        nextButton.addEventListener("click", function () {
+          if (renderedShorts < allShorts.length) {
+            renderMoreShorts();
+          }
+
+          carousel.scrollBy({
+            left: carousel.clientWidth * 0.82,
+            behavior: "smooth",
+          });
+        });
+
+        carousel.addEventListener(
+          "scroll",
+          function () {
+            var distanceFromEnd =
+              carousel.scrollWidth - carousel.scrollLeft - carousel.clientWidth;
+
+            if (
+              distanceFromEnd < carousel.clientWidth &&
+              renderedShorts < allShorts.length
+            ) {
+              renderMoreShorts();
+            }
+          },
+          { passive: true },
+        );
+
+        shortModalClose.addEventListener("click", closeShortModal);
+
+        shortModal.addEventListener("click", function (event) {
+          if (event.target === shortModal) {
+            closeShortModal();
+          }
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape" && shortModal.classList.contains("is-open")) {
+            closeShortModal();
           }
         });
       });

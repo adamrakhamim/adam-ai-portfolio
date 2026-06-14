@@ -1,10 +1,17 @@
 window.YOUTUBE_SHORTS_FEED = {
   "channelUrl": "https://www.youtube.com/@mindofAR/shorts",
-  "updatedAt": "2026-06-13T12:00:00.000Z",
+  "updatedAt": "2026-06-14T05:10:06.371Z",
   "shorts": [
     {
+      "id": "zSyw9HQ3oFo",
+      "title": "Day 807  The Movies  #runwaydailychallenge",
+      "description": "Today's prompt was The Movies, which for me always takes me back to the first time my mom took my sister and me to the movies. It made me think of families for whom going to the cinema was a long-time tradition, from childhood till old age.",
+      "url": "https://www.youtube.com/shorts/zSyw9HQ3oFo",
+      "thumbnail": "https://i.ytimg.com/vi/zSyw9HQ3oFo/frame0.jpg"
+    },
+    {
       "id": "dEHTG7YYtNY",
-      "title": "Day 802: Water #runwaydailychallenge",
+      "title": "Day 802: Water  #runwaydailychallenge",
       "description": "",
       "url": "https://www.youtube.com/shorts/dEHTG7YYtNY",
       "thumbnail": "https://i.ytimg.com/vi/dEHTG7YYtNY/frame0.jpg"
@@ -18,14 +25,14 @@ window.YOUTUBE_SHORTS_FEED = {
     },
     {
       "id": "AhPS19GjFJA",
-      "title": "Day 800: Hijack #runwaydailychallenge",
+      "title": "Day 800: Hijack  #runwaydailychallenge",
       "description": "For the challenge word \"hijack,\" I chose to avoid the usual associations, such as hijacking an airplane or a vehicle. Instead, I decided to focus on something that is more common and occurs on a smaller scale: cyber hijacking.",
       "url": "https://www.youtube.com/shorts/AhPS19GjFJA",
       "thumbnail": "https://i.ytimg.com/vi/AhPS19GjFJA/frame0.jpg"
     },
     {
       "id": "19J9tFUJv2I",
-      "title": "Day 799: Mixed Media",
+      "title": "Day 799: Mixed Media #runwaydailychallenge #boardgames #aigames",
       "description": "",
       "url": "https://www.youtube.com/shorts/19J9tFUJv2I",
       "thumbnail": "https://i.ytimg.com/vi/19J9tFUJv2I/frame0.jpg"
@@ -39,21 +46,21 @@ window.YOUTUBE_SHORTS_FEED = {
     },
     {
       "id": "H4UaFkSugyI",
-      "title": "Day 797: Reverse #runwaydailychallenge",
+      "title": "Day 797: Reverse #runwaydailychallenge #opposite #oppositeday",
       "description": "",
       "url": "https://www.youtube.com/shorts/H4UaFkSugyI",
       "thumbnail": "https://i.ytimg.com/vi/H4UaFkSugyI/frame0.jpg"
     },
     {
       "id": "efNLIdOJTaM",
-      "title": "Day 796: Rack Focus #runwaydailychallenge",
+      "title": "Day 796 Rack Focus #runwaydailychallenge #cats",
       "description": "",
       "url": "https://www.youtube.com/shorts/efNLIdOJTaM",
       "thumbnail": "https://i.ytimg.com/vi/efNLIdOJTaM/frame0.jpg"
     },
     {
       "id": "u2XjfF4-0NM",
-      "title": "Day 794: Architecture #runwaydailychallenge",
+      "title": "Day 794: Architecture  #runwaydailychallenge",
       "description": "#runwaydailychallenge",
       "url": "https://www.youtube.com/shorts/u2XjfF4-0NM",
       "thumbnail": "https://i.ytimg.com/vi/u2XjfF4-0NM/frame0.jpg"

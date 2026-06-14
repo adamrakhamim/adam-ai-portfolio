@@ -4,6 +4,10 @@ const outputPath = "shorts.json";
 const browserOutputPath = "shorts-data.js";
 const channelUrl = "https://www.youtube.com/@mindofAR/shorts";
 
+function readJson(path) {
+  return JSON.parse(fs.readFileSync(path, "utf8").replace(/^\uFEFF/, ""));
+}
+
 function readBrowserFeed(path) {
   if (!fs.existsSync(path)) {
     return null;
@@ -12,6 +16,7 @@ function readBrowserFeed(path) {
   return JSON.parse(
     fs
       .readFileSync(path, "utf8")
+      .replace(/^\uFEFF/, "")
       .replace(/^window\.YOUTUBE_SHORTS_FEED\s*=\s*/, "")
       .replace(/;\s*$/, ""),
   );
@@ -21,10 +26,10 @@ let flatFeed;
 let detailedFeed = { entries: [] };
 
 if (process.argv[2]) {
-  flatFeed = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
+  flatFeed = readJson(process.argv[2]);
 
   if (process.argv[3] && fs.existsSync(process.argv[3])) {
-    detailedFeed = JSON.parse(fs.readFileSync(process.argv[3], "utf8"));
+    detailedFeed = readJson(process.argv[3]);
   }
 } else {
   let input = "";
@@ -37,7 +42,7 @@ if (process.argv[2]) {
 }
 
 const existing = fs.existsSync(outputPath)
-  ? JSON.parse(fs.readFileSync(outputPath, "utf8"))
+  ? readJson(outputPath)
   : null;
 const existingBrowserData = readBrowserFeed(browserOutputPath);
 const existingById = new Map(
@@ -57,8 +62,9 @@ const shorts = (flatFeed.entries || [])
   .map((entry) => {
     const detailedEntry = detailedById.get(entry.id);
     const existingShort = existingById.get(entry.id);
-    const description =
-      detailedEntry?.description?.trim() || existingShort?.description || "";
+    const description = detailedEntry
+      ? detailedEntry.description?.trim() || ""
+      : existingShort?.description || "";
 
     return {
       id: entry.id,

@@ -26,7 +26,15 @@ jobs:
       - name: Refresh Shorts feed
         run: |
           yt-dlp --flat-playlist --dump-single-json "https://www.youtube.com/@mindofAR/shorts" > shorts-flat.json
-          yt-dlp --skip-download --dump-single-json --playlist-end 30 "https://www.youtube.com/@mindofAR/shorts" > shorts-detailed.json
+
+          if curl --fail --silent --show-error --retry 3 --retry-all-errors "https://www.youtube.com/feeds/videos.xml?channel_id=UCPMXthMLXNxMxVSy_xXeEGg" > youtube-rss.xml \
+            && python scripts/parse-youtube-rss.py youtube-rss.xml shorts-detailed.json; then
+            echo "Loaded recent descriptions from YouTube RSS."
+          else
+            echo "Description metadata was unavailable; preserving existing descriptions."
+            echo '{"entries":[]}' > shorts-detailed.json
+          fi
+
           node scripts/update-shorts.mjs shorts-flat.json shorts-detailed.json
 
       - name: Commit feed changes

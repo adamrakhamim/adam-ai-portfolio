@@ -1,7 +1,14 @@
 window.YOUTUBE_SHORTS_FEED = {
   "channelUrl": "https://www.youtube.com/@mindofAR/shorts",
-  "updatedAt": "2026-06-14T08:51:04.299Z",
+  "updatedAt": "2026-06-21T07:10:47.938Z",
   "shorts": [
+    {
+      "id": "TE-Zd1aUYCk",
+      "title": "Day 814: The Reveal  #runwaydailychallenge",
+      "description": "What happens when our sharpest minds get fooled by the monsters we've created?",
+      "url": "https://www.youtube.com/shorts/TE-Zd1aUYCk",
+      "thumbnail": "https://i.ytimg.com/vi/TE-Zd1aUYCk/frame0.jpg"
+    },
     {
       "id": "YMl4ruJEsXE",
       "title": "Door #mensmentalhealth #endthestigma",
